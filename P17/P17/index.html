@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home Automation</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='viit.jpg') }}" alt="VIIT Logo" class="logo">
+
+  <div class="container">
+    <h1>Smart Home Automation</h1>
+
+    <div class="status-section">
+      <h2>Actuator Status</h2>
+      <div class="status-item">
+        <span class="status-label led-red">Red LED Status</span>
+        <span class="status-value {% if ledRed == 1 %}status-on{% else %}status-off{% endif %}">
+          {{ 'ON' if ledRed == 1 else 'OFF' }}
+        </span>
+      </div>
+      <div class="status-item">
+        <span class="status-label led-yellow">Yellow LED Status</span>
+        <span class="status-value {% if ledYellow == 1 %}status-on{% else %}status-off{% endif %}">
+          {{ 'ON' if ledYellow == 1 else 'OFF' }}
+        </span>
+      </div>
+      <div class="status-item">
+        <span class="status-label led-green">Green LED Status</span>
+        <span class="status-value {% if ledGreen == 1 %}status-on{% else %}status-off{% endif %}">
+          {{ 'ON' if ledGreen == 1 else 'OFF' }}
+        </span>
+      </div>
+    </div>
+
+    <div class="control-section">
+      <h2>LED Controls</h2>
+      <div class="control-item">
+        <span class="status-label led-red">Red LED</span>
+        <div>
+          <a href="/ledRed/on" class="button button-on">Turn On</a>
+          <a href="/ledRed/off" class="button button-off">Turn Off</a>
+        </div>
+      </div>
+      <div class="control-item">
+        <span class="status-label led-yellow">Yellow LED</span>
+        <div>
+          <a href="/ledYellow/on" class="button button-on">Turn On</a>
+          <a href="/ledYellow/off" class="button button-off">Turn Off</a>
+        </div>
+      </div>
+      <div class="control-item">
+        <span class="status-label led-green">Green LED</span>
+        <div>
+          <a href="/ledGreen/on" class="button button-on">Turn On</a>
+          <a href="/ledGreen/off" class="button button-off">Turn Off</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
